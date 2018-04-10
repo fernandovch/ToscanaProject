@@ -46,7 +46,7 @@ namespace ToscanaWebApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ToscanaBDContext toscanaBDContext)
         {
             if (env.IsDevelopment())
             {
@@ -62,6 +62,8 @@ namespace ToscanaWebApp
             app.UseStaticFiles();
 
             app.UseAuthentication();
+
+            toscanaBDContext.Database.EnsureCreated();
 
             app.UseMvc(routes =>
             {
