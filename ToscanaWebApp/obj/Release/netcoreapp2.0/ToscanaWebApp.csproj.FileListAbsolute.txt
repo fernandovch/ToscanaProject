@@ -1,0 +1,11 @@
+C:\source\ToscanaWebApp\ToscanaWebApp\bin\Release\netcoreapp2.0\ToscanaWebApp.deps.json
+C:\source\ToscanaWebApp\ToscanaWebApp\bin\Release\netcoreapp2.0\ToscanaWebApp.runtimeconfig.json
+C:\source\ToscanaWebApp\ToscanaWebApp\bin\Release\netcoreapp2.0\ToscanaWebApp.runtimeconfig.dev.json
+C:\source\ToscanaWebApp\ToscanaWebApp\bin\Release\netcoreapp2.0\ToscanaWebApp.dll
+C:\source\ToscanaWebApp\ToscanaWebApp\bin\Release\netcoreapp2.0\ToscanaWebApp.pdb
+C:\source\ToscanaWebApp\ToscanaWebApp\obj\Release\netcoreapp2.0\ToscanaWebApp.csproj.CoreCompileInputs.cache
+C:\source\ToscanaWebApp\ToscanaWebApp\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\source\ToscanaWebApp\ToscanaWebApp\obj\Release\netcoreapp2.0\ToscanaWebApp.AssemblyInfoInputs.cache
+C:\source\ToscanaWebApp\ToscanaWebApp\obj\Release\netcoreapp2.0\ToscanaWebApp.AssemblyInfo.cs
+C:\source\ToscanaWebApp\ToscanaWebApp\obj\Release\netcoreapp2.0\ToscanaWebApp.dll
+C:\source\ToscanaWebApp\ToscanaWebApp\obj\Release\netcoreapp2.0\ToscanaWebApp.pdb
