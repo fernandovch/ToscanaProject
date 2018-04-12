@@ -11,7 +11,7 @@
 
                 <h1>Hello, FErnando!</h1>
                 <p>Direccion</p><p>TElefonos</p>
-
+ 
 
             </div>
             <div class="row">
@@ -26,11 +26,12 @@
                             <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
                             <input type="text" class="form-control" id="pedidoProducto">
                             <a class="btn btn-default" asp-action="Agrega">Agregar al pedido</a>
+                            <a class="btn btn-default" asp-controller="Catalogo" asp-action="Valida" asp-route-id="10">Valida</a>
                         </div>
                     </div>
                 }
             </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
-
+     
     </div><!--/row-->
 </div><!--/.container-->
