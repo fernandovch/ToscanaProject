@@ -13184,11 +13184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Virtual\\Source\\Repos\\ToscanaProject\\ToscanaWebApp\\ToscanaWebApp.csproj",
+      "projectUniqueName": "C:\\Users\\Virtual\\source\\repos\\ToscanaProject\\ToscanaWebApp\\ToscanaWebApp.csproj",
       "projectName": "ToscanaWebApp",
-      "projectPath": "C:\\Users\\Virtual\\Source\\Repos\\ToscanaProject\\ToscanaWebApp\\ToscanaWebApp.csproj",
+      "projectPath": "C:\\Users\\Virtual\\source\\repos\\ToscanaProject\\ToscanaWebApp\\ToscanaWebApp.csproj",
       "packagesPath": "C:\\Users\\Virtual\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Virtual\\Source\\Repos\\ToscanaProject\\ToscanaWebApp\\obj\\",
+      "outputPath": "C:\\Users\\Virtual\\source\\repos\\ToscanaProject\\ToscanaWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

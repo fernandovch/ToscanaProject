@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ToscanaWebApp.Models.Producto>
+
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+            <div class="row">
+
+                <h1>Hello, FErnando!</h1>
+                <p>Direccion</p><p>TElefonos</p>
+
+
+            </div>
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-xs-6 col-lg-4">
+                        <h2>@Html.DisplayFor(modelItem => item.Nombre)</h2>
+                        <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+                }
+            </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+    </div><!--/row-->
+
+
+
+</div><!--/.container-->
