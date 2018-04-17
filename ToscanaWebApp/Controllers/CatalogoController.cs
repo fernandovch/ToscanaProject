@@ -7,17 +7,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ToscanaWebApp.Models;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using ToscanaWebApp.Extensions;
 
 namespace ToscanaWebApp.Controllers
 {
     public class CatalogoController : Controller
     {
-        const string SessionKeyDate = "_Date";
 
+        
         private readonly ToscanaBDContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CatalogoController(ToscanaBDContext context)
+        public CatalogoController(ToscanaBDContext context, IHttpContextAccessor httpContextAccessor)
         {
+            this._httpContextAccessor = httpContextAccessor;
             _context = context;
         }
 
@@ -25,45 +29,53 @@ namespace ToscanaWebApp.Controllers
         public IActionResult Index()
         {
             var toscanaBDContext = _context.Producto.ToList();
+
+          //  CarritoCompra _carrito = new CarritoCompra();
+          //  TempDataExtension.Put<Dictionary<string,string>>(TempData, "cargamento", _carrito.Cargamento);
+
             return View(toscanaBDContext.ToList());
 
         }
 
 
 
-        public IActionResult Agrega()
+        public IActionResult Agrega(int? idProducto, int? cantidad)
         {
-            
-            CarritoCompra carritoCompra = new CarritoCompra { Cantidad = 20, IDProducto = 10 };
-            HttpContext.Session.Set<CarritoCompra>(SessionKeyDate, carritoCompra);
+            Dictionary<string, string> _Cargamento = new Dictionary<string, string>();
+
+            int IDP = idProducto.HasValue == true ? idProducto.Value : 0;
+            int Cant = cantidad.HasValue == true ? cantidad.Value : 0;
+
+            if (TempData["cargamento"] != null)
+            {
+                _Cargamento = TempDataExtension.Get<Dictionary<string, string>>(TempData, "cargamento");
+                _Cargamento.Add(IDP.ToString(), Cant.ToString());
+            }
+            else
+            {
+                _Cargamento.Add(IDP.ToString(), Cant.ToString());
+            }
+
+            TempDataExtension.Put<Dictionary<string, string>>(TempData, "cargamento", _Cargamento);
 
             return RedirectToAction("Index");
         }
 
         
-        public IActionResult Valida(int? id)
+        public IActionResult Valida()
         {
-            var date = HttpContext.Session.Get<CarritoCompra>(SessionKeyDate);
+            
 
-            return Content("Cantidad: "+ date.Cantidad + "id: " + date.IDProducto);
+            return RedirectToAction("Index"); ;
         }
+
+
+       
+
+
     }
 
 
-
-    public static class SessionExtensions
-    {
-        public static void Set<T>(this ISession session, string key, T value)
-        {
-            session.SetString(key, JsonConvert.SerializeObject(value));
-        }
-
-        public static T Get<T>(this ISession session, string key)
-        {
-            var value = session.GetString(key);
-            return value == null ? default(T) :
-                                  JsonConvert.DeserializeObject<T>(value);
-        }
-    }
+   
 
 }

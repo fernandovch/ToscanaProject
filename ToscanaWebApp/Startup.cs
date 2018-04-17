@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using ToscanaWebApp.Data;
 using ToscanaWebApp.Models;
 using ToscanaWebApp.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ToscanaWebApp
 {
@@ -41,15 +43,12 @@ namespace ToscanaWebApp
 
             services.AddMvc();
 
-            // Adds a default in-memory implementation of IDistributedCache.
-            services.AddDistributedMemoryCache();
+           
+            // Adds the ability to use session variables.
+            services.AddSession();
+            services.AddMemoryCache();
+            services.AddSingleton<ITempDataProvider, SessionStateTempDataProvider>();
 
-            services.AddSession(options =>
-            {
-                // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromSeconds(50);
-                options.Cookie.HttpOnly = true;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,12 +66,12 @@ namespace ToscanaWebApp
             }
 
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseAuthentication();
 
             toscanaBDContext.Database.EnsureCreated();
 
-            app.UseSession();
 
             app.UseMvc(routes =>
             {

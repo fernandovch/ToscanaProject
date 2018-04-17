@@ -5,9 +5,16 @@ using System.Threading.Tasks;
 
 namespace ToscanaWebApp.Models
 {
+
     public class CarritoCompra
     {
-        public int IDProducto { get; set; }
-        public int Cantidad { get; set; }
+
+
+        public Dictionary<string, string> Cargamento { get; set; }
+
+        public CarritoCompra()
+        {
+            Cargamento = new Dictionary<string, string>() { { "", "" } };
+        }
     }
 }
