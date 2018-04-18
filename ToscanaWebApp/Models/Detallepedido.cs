@@ -10,8 +10,8 @@ namespace ToscanaWebApp.Models
         public int Productoid { get; set; }
         public int Cantidad { get; set; }
         public decimal Subtotal { get; set; }
+        public bool? Generado { get; set; }
 
-        public Pedidos Pedido { get; set; }
         public Producto Producto { get; set; }
     }
 }

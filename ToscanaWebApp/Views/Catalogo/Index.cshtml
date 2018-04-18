@@ -11,41 +11,37 @@
 
                 <h1>Hello, FErnando!</h1>
                 <p>Direccion</p><p>TElefonos</p>
- 
+
 
             </div>
             <div class="row">
 
-           @using (Html.BeginForm("Agrega", "Catalogo", FormMethod.Post))
-            {
-                @*@Html.TextBoxFor(model => model.Email)
-                @Html.ValidationMessageFor(model => model.Email)*@
-                <button type="submit">Subscribe</button>
+                @foreach (var item in Model)
+                {
+                    <div class="col-xs-6 col-lg-4">
+                        <div class="form-group">
+
+                            <label for="pedidoProducto">
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </label>
+                            <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
 
 
 
-                    @foreach (var item in Model)
-                    {
-                                <div class="col-xs-6 col-lg-4">
-                                    <div class="form-group">
-                                        <label for="pedidoProducto">
-                                            @Html.DisplayFor(modelItem => item.Nombre)
-                                        </label>
-                                        <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
-                                        <input type="text" class="form-control" id="pedidoProducto">
-                                      
-                                        <a class="btn btn-default" asp-action="Agrega" asp-route-idProducto="@item.Id"
-                                           asp-route-Cantidad='document.getElementById("pedidoProducto").value'>Agregar al pedido</a>
+                            @Html.TextBox("Cantidad", "Ingrese cantidad", new { style = "color:red" })
+
+                            <a class="btn btn-default" asp-action="Agrega" asp-route-idProducto="@item.Id"
+                               asp-route-Cantidad="@item.Cantidad">Agregar al pedido</a>
+
+                            @Html.ActionLink("Server-side Link", "Agrega", "Catalogo",
+                     new { id = @item.Id, Cantidad = document.getElementById("Cantidad") })
+                        </div>
+                    </div>
+                }
 
 
-                                        <a class="btn btn-default" asp-controller="Catalogo" asp-action="Valida">Valida</a>
-                                    </div>
-                                </div>
-                    }
-
-            }
             </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
-     
+
     </div><!--/row-->
 </div><!--/.container-->

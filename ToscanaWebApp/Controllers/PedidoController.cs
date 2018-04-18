@@ -21,8 +21,7 @@ namespace ToscanaWebApp.Controllers
         // GET: Pedido
         public async Task<IActionResult> Index()
         {
-            var toscanaBDContext = _context.Pedidos.Include(p => p.Cliente);
-            return View(await toscanaBDContext.ToListAsync());
+            return Ok();
         }
 
         // GET: Pedido/Details/5
@@ -33,15 +32,10 @@ namespace ToscanaWebApp.Controllers
                 return NotFound();
             }
 
-            var pedidos = await _context.Pedidos
-                .Include(p => p.Cliente)
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (pedidos == null)
-            {
-                return NotFound();
-            }
+            
+            
 
-            return View(pedidos);
+            return View();
         }
 
         //// GET: Pedido/Create
@@ -153,7 +147,7 @@ namespace ToscanaWebApp.Controllers
 
         private bool PedidosExists(int id)
         {
-            return _context.Pedidos.Any(e => e.Id == id);
+            return true;
         }
     }
 }

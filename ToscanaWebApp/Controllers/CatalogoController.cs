@@ -29,22 +29,18 @@ namespace ToscanaWebApp.Controllers
         public IActionResult Index()
         {
             var toscanaBDContext = _context.Producto.ToList();
-
-          //  CarritoCompra _carrito = new CarritoCompra();
-          //  TempDataExtension.Put<Dictionary<string,string>>(TempData, "cargamento", _carrito.Cargamento);
-
             return View(toscanaBDContext.ToList());
 
         }
 
 
 
-        public IActionResult Agrega(int? idProducto, int? cantidad)
+        public IActionResult Agrega(int? Id, int? Cantidad)
         {
             Dictionary<string, string> _Cargamento = new Dictionary<string, string>();
 
-            int IDP = idProducto.HasValue == true ? idProducto.Value : 0;
-            int Cant = cantidad.HasValue == true ? cantidad.Value : 0;
+            int IDP = Id.HasValue == true ? Id.Value : 0;
+            int Cant = Cantidad.HasValue == true ? Cantidad.Value : 0;
 
             if (TempData["cargamento"] != null)
             {

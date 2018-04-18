@@ -21,4 +21,3 @@ C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\ToscanaWebApp.AssemblyInfo.cs
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\ToscanaWebApp.dll
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\ToscanaWebApp.pdb
-C:\Users\Virtual\source\repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\ToscanaWebApp.csprojResolveAssemblyReference.cache
