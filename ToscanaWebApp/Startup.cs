@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using ToscanaWebApp.Data;
 using ToscanaWebApp.Models;
 using ToscanaWebApp.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ToscanaWebApp
 {
@@ -39,10 +41,14 @@ namespace ToscanaWebApp
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            
-
-
             services.AddMvc();
+
+           
+            // Adds the ability to use session variables.
+            services.AddSession();
+            services.AddMemoryCache();
+            services.AddSingleton<ITempDataProvider, SessionStateTempDataProvider>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,10 +66,12 @@ namespace ToscanaWebApp
             }
 
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseAuthentication();
 
             toscanaBDContext.Database.EnsureCreated();
+
 
             app.UseMvc(routes =>
             {

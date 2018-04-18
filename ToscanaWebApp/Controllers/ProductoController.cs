@@ -23,7 +23,7 @@ namespace ToscanaWebApp.Controllers
         // GET: Productoes
         public async Task<IActionResult> Index()
         {
-            var toscanaBDContext = _context.Producto.Include(p => p.CantidadNavigation).Include(p => p.Categoria);
+            var toscanaBDContext = _context.Producto;
             return View(await toscanaBDContext.ToListAsync());
         }
 
@@ -36,8 +36,8 @@ namespace ToscanaWebApp.Controllers
             }
 
             var producto = await _context.Producto
-                .Include(p => p.CantidadNavigation)
-                .Include(p => p.Categoria)
+             
+                
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (producto == null)
             {
@@ -49,8 +49,7 @@ namespace ToscanaWebApp.Controllers
 
         // GET: Productoes/Create
         public IActionResult Create()
-        {
-            ViewData["Cantidadid"] = new SelectList(_context.Tipounidad, "Id", "Descripcion");
+        {            
             ViewData["Categoriaid"] = new SelectList(_context.Categoriaproducto, "Id", "Categoria");
             return View();
         }
@@ -60,7 +59,7 @@ namespace ToscanaWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Cantidadid,Categoriaid,Cantidad,Precio,Costo,Impuestoventas,Impuestovarios,Creacion,Modificacion,Usuariocreador,Usuariomodificador")] Producto producto)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Cantidad,Precio,Costo,Impuestoventas,Impuestovarios,Creacion,Modificacion,Usuariocreador,Usuariomodificador")] Producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +67,7 @@ namespace ToscanaWebApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Cantidadid"] = new SelectList(_context.Tipounidad, "Id", "Descripcion", producto.Cantidadid);
+            
             ViewData["Categoriaid"] = new SelectList(_context.Categoriaproducto, "Id", "Categoria", producto.Categoriaid);
             return View(producto);
         }
@@ -86,7 +85,7 @@ namespace ToscanaWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["Cantidadid"] = new SelectList(_context.Tipounidad, "Id", "Descripcion", producto.Cantidadid);
+            
             ViewData["Categoriaid"] = new SelectList(_context.Categoriaproducto, "Id", "Categoria", producto.Categoriaid);
             return View(producto);
         }
@@ -96,7 +95,7 @@ namespace ToscanaWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Cantidadid,Categoriaid,Cantidad,Precio,Costo,Impuestoventas,Impuestovarios")] Producto producto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Categoriaid,Cantidad,Precio,Costo,Impuestoventas,Impuestovarios")] Producto producto)
         {
             if (id != producto.Id)
             {
@@ -123,7 +122,7 @@ namespace ToscanaWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Cantidadid"] = new SelectList(_context.Tipounidad, "Id", "Descripcion", producto.Cantidadid);
+            
             ViewData["Categoriaid"] = new SelectList(_context.Categoriaproducto, "Id", "Categoria", producto.Categoriaid);
             return View(producto);
         }
@@ -137,8 +136,8 @@ namespace ToscanaWebApp.Controllers
             }
 
             var producto = await _context.Producto
-                .Include(p => p.CantidadNavigation)
-                .Include(p => p.Categoria)
+               
+               
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (producto == null)
             {

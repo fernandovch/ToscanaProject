@@ -15,7 +15,6 @@ C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\bin\Debug\netcoreapp2
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\bin\Debug\netcoreapp2.0\ToscanaWebApp.runtimeconfig.dev.json
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\bin\Debug\netcoreapp2.0\ToscanaWebApp.dll
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\bin\Debug\netcoreapp2.0\ToscanaWebApp.pdb
-C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\ToscanaWebApp.csprojResolveAssemblyReference.cache
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\ToscanaWebApp.csproj.CoreCompileInputs.cache
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\Virtual\Source\Repos\ToscanaProject\ToscanaWebApp\obj\Debug\netcoreapp2.0\ToscanaWebApp.AssemblyInfoInputs.cache
